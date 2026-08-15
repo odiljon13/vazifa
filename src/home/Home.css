@@ -1,74 +1,121 @@
-/* Umumiy sahifa ko'rinishi va kartochkani markazlashtirish */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
-/* React root elementi stilizatsiyasi */
-#root {
-  background-color: #ffffff;
-  padding: 30px 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.profile-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 28px;
+  padding: 45px 35px;
+  max-width: 380px;
   width: 100%;
-  max-width: 350px;
   text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 28px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ffffff;
+  transition: transform 0.5s ease;
+}
+
+.profile-card:hover .profile-image {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background-color: #10b981;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.profile-name {
+  margin: 0 0 12px 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: -0.02em;
+}
+
+.profile-bio {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 35px 0;
+  font-weight: 400;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.social-link img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-#root:hover {
-  transform: translateY(-5px);
+.social-link:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Asosiy profil rasmi */
-#root > img:first-of-type {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #764ba2;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+.social-link.youtube:hover {
+  background-color: #fffafb;
+  border-color: #ffd0d0;
 }
 
-/* Ism (H1) */
-h1 {
-  margin: 10px 0 8px 0;
-  font-size: 24px;
-  color: #2d3748;
-  font-weight: 700;
-}
-
-/* Matn va ma'lumot (P) */
-p {
-  color: #718096;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-/* Ijtimoiy tarmoqlar linklari */
-a {
-  display: inline-block;
-  margin: 0 10px;
-  transition: transform 0.2s ease;
-}
-
-a:hover {
-  transform: scale(1.15);
-}
-
-/* Telegram va Youtube belgilari (ikonkalari) */
-a img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+.social-link.telegram:hover {
+  background-color: #f6fbff;
+  border-color: #c9ebff;
 }
